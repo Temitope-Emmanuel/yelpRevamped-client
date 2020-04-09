@@ -1,0 +1,17 @@
+
+// Carousel-img
+export { default as CarouselImg1 } from "./carousel-img1.jpg"
+export {default as CarouselImg2} from "./carousel-img2.jpg"
+export {default as CarouselImg3} from "./carousel-img3.jpg"
+export {default as CarouselImg4} from "./carousel-img4.jpg"
+export {default as CarouselImg5} from "./carousel-img5.jpg"
+export {default as CarouselImg6} from "./carousel-img6.jpg"
+export {default as CarouselImg7} from "./carousel-img7.jpg"
+export {default as CarouselImg8} from "./carousel-img8.jpg"
+export {default as CarouselImg9} from "./carousel-img9.jpg"
+export {default as CarouselImg10} from "./carousel-img10.jpg"
+export {default as CarouselImg11} from "./carousel-img11.jpg"
+export {default as CarouselImg12} from "./carousel-img12.jpg"
+export {default as CarouselImg13} from "./carousel-img13.jpg"
+export {default as CarouselImg14} from "./carousel-img14.jpg"
+export {default as CarouselImg15} from "./carousel-img15.jpg"

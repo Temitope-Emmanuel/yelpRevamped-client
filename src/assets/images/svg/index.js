@@ -1,0 +1,6 @@
+export {default as svg1} from "./undraw_before_dawn_bqrj.svg"
+export {default as svg2} from "./undraw_campfire_s6y4.svg"
+export {default as svg3} from "./undraw_Country_side_k696.svg"
+export {default as svg4} from "./undraw_into_the_night_vumi.svg"
+export {default as svg5} from "./undraw_nature_fun_n9lv.svg"
+export {default as svg6} from "./undraw_through_the_park_lxnl.svg"
