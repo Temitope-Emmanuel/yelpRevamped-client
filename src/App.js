@@ -7,11 +7,11 @@ import {TransitionGroup,CSSTransition} from "react-transition-group"
 import AuthForm from "./component/SignUp"
 import {connect} from "react-redux"
 import {authUser} from "./redux/action/user"
-import {loadCampground} from "./redux/action/campground"
 import DashboardContainer from "./container/DashboardContainer"
 import CampgroundContainer from "./container/CampgroundContainer"
 
 function App(props) {
+
   return (
     <Route render={({location,...propsRoute}) => (
       <TransitionGroup>
@@ -39,7 +39,7 @@ function App(props) {
             )} />
             <Route exact path="/campground/:campId" render={(routeProps) => (
               <WrapperContainer>
-                <CampgroundContainer loadCampground={loadCampground} routeProps={routeProps} />
+                <CampgroundContainer routeProps={routeProps} />
               </WrapperContainer>
             )} />
             <Route render={() => (<div>Whoops this page does not exist</div>)} />
@@ -58,4 +58,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps,{authUser,loadCampground})(App)
+export default connect(mapStateToProps,{authUser})(App)

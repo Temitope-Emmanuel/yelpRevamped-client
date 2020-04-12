@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
         position:"absolute",
         height:"100%",
         width:"100%",
-        backgroundImage:"linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.5))"
+        backgroundImage:"linear-gradient(145deg,rgba(0,0,0,.1),rgba(0,0,0,.7))"
     },
     carouselContainer:{
         width:"100%",
@@ -38,7 +38,6 @@ const useStyles = makeStyles(theme => ({
             fontSize:"3.9em",
             margin:"0 .3em",
             fontWeight:"600",
-            // textShadow:"0em 0em 1.5em rgba(0,0,0,.9)",
             animationName:"pulse",
             animationDuration:"1.9s",
             animationIterationCount:"1",

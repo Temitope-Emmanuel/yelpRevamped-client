@@ -8,9 +8,9 @@ export const DELETE_CAMPGROUND = "DELETE_CAMPGROUND";
 export const SET_CURRENT_USER = "SET_CURRENT_USER"
 
 // comment action type
-export const add_Comment = "add_Comment"
-export const edit_Comment = "edit_Comment"
-export const delete_Comment = "delete_Comment"
+export const ADD_COMMENT = "ADD_COMMENT"
+export const DELETE_COMMENT = "DELETE_COMMENT"
+export const LOAD_COMMENT = "LOAD_COMMENT"
 
 // error action type 
 export const ADD_ERROR = "ADD_ERROR"

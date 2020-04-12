@@ -48,11 +48,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     width: "100%",
-    padding:theme.spacing(1)
   },
 }));
 
-const TabComponent =  function () {
+const TabComponent =  function (props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -64,7 +63,6 @@ const TabComponent =  function () {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-
   return (
     <div className={classes.root}>
       <AppBar style={{
@@ -97,12 +95,11 @@ const TabComponent =  function () {
         <TabPanel style={{
           backgroundColor:"rgba(0,0,0,.4)",
           width:"100%",
-          height:"100%",
-          overflowY:"auto",
-          maxHeight:"35em"
+          height:"100%"
         }} value={value} index={0} dir={theme.direction}>
-          <CommentList/>
+          <CommentList {...props} />
         </TabPanel>
+
         <TabPanel value={value} index={1} dir={theme.direction}>
           <BookForm/>
         </TabPanel>

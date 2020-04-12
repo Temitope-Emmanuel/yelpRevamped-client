@@ -1,15 +1,11 @@
 import React from "react"
 import {Box} from "@material-ui/core"
 import {makeStyles} from "@material-ui/core/styles"
-import Facebook from "../assets/images/footer/facebook.svg"
-import Instagram from "../assets/images/footer/instagram.svg"
-import Twitter from "../assets/images/footer/twitter.svg"
-import Image20 from "../assets/images/footer/Image20.png"
-import Image21 from "../assets/images/footer/Image21.png"
-import Image22 from "../assets/images/footer/Image22.png"
-import AcUnitIcon from '@material-ui/icons/AcUnit';
-
-
+import {green} from "@material-ui/core/colors"
+import TerrainRoundedIcon from '@material-ui/icons/TerrainRounded';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 
 const useStyles = makeStyles(theme => ({
     root:{
@@ -18,68 +14,25 @@ const useStyles = makeStyles(theme => ({
         flexDirection:"column",
         alignItems:"flex-end",
         width:"100%",
+        marginTop:theme.spacing(3)
     },
-    downloadContainer:{
-        display:"flex",
-        flexDirection:"row",
-        width:"90%",
-        justifyContent:"center",
-        alignItems:"center",
-        padding:"0 2em",
-        "& div":{
-            width:"70%",
-            "& h3":{
-                fontSize:"2em",
-                fontWeight:"500",
-                margin:".3em 0"
-            },
-            "& p":{
-                fontSize:"1em",
-                fontWeight:"600",
-                opacity:".8"
-            }
-        },
-        [theme.breakpoints.down("sm")]:{
-            padding:"0 .5em",
-            flexDirection:"column",
-            "& div":{
-                width:"100%",
-                "& p":{
-                    fontSize:".9em",
-                    fontWeight:"400",
-                    opacity:"1",
-                }
-            }
-        }
-    },
-    mainImage:{
-        height:"22.5em",
-        marginBottom:"-2.9em",
-        zIndex:"3",
-        // alignSelf:"center",
-        [theme.breakpoints.down("sm")]:{
-        height:"12em",
-        paddingRight:"3em",
-        marginBottom:"-1.5em"
-    }
-    },
-    imageContainer:{
-        display:"flex",
-        width:"100%",
-        margin:"1.7em 0em",
-        alignItems:"center",
-        "& img":{
-            height:"2em",
-            margin:".6em"
-        },
-        [theme.breakpoints.down("sm")]:{
-            justifyContent:"flex-start",
-            alignItems:"flex-start",
-            "& img":{
-                margin:".2em 1em"
-            }
-        }
-    },
+    // imageContainer:{
+    //     display:"flex",
+    //     width:"100%",
+    //     margin:"1.7em 0em",
+    //     alignItems:"center",
+    //     "& img":{
+    //         height:"2em",
+    //         margin:".6em"
+    //     },
+    //     [theme.breakpoints.down("sm")]:{
+    //         justifyContent:"flex-start",
+    //         alignItems:"flex-start",
+    //         "& svg":{
+    //             margin:".2em 1em"
+    //         }
+    //     }
+    // },
     socialContainer:{
         width:"100%",
         padding:"2em 0",
@@ -102,13 +55,13 @@ const useStyles = makeStyles(theme => ({
         alignItems:"center",
         "& h3":{
             fontSize:"1.75em",
-            color:"white",
             fontWeight:"500",
             opacity:".9",
         },
         "& svg":{
-            fontSize:"1.8em",
-            marginRight:".3em"
+            fontSize:"4.7em",
+            marginRight:".1em",
+            color:green[400]
         },
     },
     listContainer:{
@@ -117,7 +70,6 @@ const useStyles = makeStyles(theme => ({
         justifyContent:"center",
         padding:"0",
         alignItems:"center",
-        color:"white",
         "& span":{
             margin:".5em"
         },[theme.breakpoints.down("sm")]:{
@@ -129,8 +81,9 @@ const useStyles = makeStyles(theme => ({
         flexDirection:"row",
         margin:"2.7em 0em",
         justifyContent:"center",
-        "& img":{
-            margin:"0 1em"
+        "& svg":{
+            margin:"0 1em",
+            fontSize:"2.5em"
         }
     }
 }))
@@ -140,26 +93,10 @@ const Footer  = function(){
     const classes = useStyles()
     return(
         <Box className={classes.root}>
-            <Box className={classes.downloadContainer}>
-                <Box className={classes.headingContainer}>
-                    <h3>
-                        Download our app now!
-                    </h3>
-                    <p>
-                        The rise of mobile devices transform the way we consume information entirely <br/>
-                        and the world's most elevant channels such as Facebook
-                    </p>
-                    <Box className={classes.imageContainer}>
-                        <img alt="playstore" src={Image20} />
-                        <img alt="app store" src={Image21} />
-                    </Box>
-                </Box>
-                    <img alt="img-svg" className={classes.mainImage} src={Image22} />
-            </Box>
             <Box className={classes.socialContainer}>
                 <Box className={classes.brandContainer}>
-                    <AcUnitIcon/>
-                    <h3>VGF Haul</h3>
+                    <TerrainRoundedIcon/>
+                    <h3>Yelpcamp</h3>
                 </Box>
                 <Box className={classes.listContainer}>
                     <Box component="span" >Home</Box>
@@ -169,9 +106,9 @@ const Footer  = function(){
                     <Box component="span" >FAQ</Box>
                 </Box>
                 <Box className={classes.mediaContainer}>
-                    <img alt="instagram-alt" src={Instagram} />
-                    <img alt="facebook-alt" src={Facebook} />
-                    <img alt="twitter-alt" src={Twitter} />
+                    <GitHubIcon/>
+                    <LinkedInIcon/>
+                    <WhatsAppIcon/>
                 </Box>
                 <p>
                     Copyright Temitope Emmanuel Ojo 2020.

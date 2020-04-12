@@ -1,9 +1,15 @@
 import React from "react"
 import {Campground} from "../component/Campground"
 import {connect} from "react-redux"
-
+import {AddComment,deleteComment,loadComment} from "../redux/action/comment"
 
 const CampgroundContainer = function(props){
+    React.useEffect(
+        ()=>{
+            props.loadComment(props.routeProps.match.params.campId)
+        },
+        []
+    )
     return (
         <Campground {...props} />
     )
@@ -13,8 +19,9 @@ const CampgroundContainer = function(props){
 
 function mapStateToProps(state){
     return {
-        Campground:state.Campground,
+        Campground:state.CampgroundComment,
+        creator:state.User.user.username
     }
 }
 
-export default connect(mapStateToProps,null)(CampgroundContainer)
+export default connect(mapStateToProps,{loadComment,AddComment,deleteComment})(CampgroundContainer)

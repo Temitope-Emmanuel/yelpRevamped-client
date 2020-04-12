@@ -7,18 +7,21 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import {green,red} from "@material-ui/core/colors"
+import {Redirect} from "react-router-dom"
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const DialogComponent = function ({open,handleDialog,logout,...user}) {
+const DialogComponent = function ({open,history,handleDialog,logout,...user}) {
 
   
   const handleLogout = ()=>{
     logout()
     handleDialog()
+    history.push("/")
   }
+  console.log(history)
   return (
     <div>
       <Dialog

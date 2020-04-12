@@ -207,7 +207,6 @@ const getStepContent = (step) => {
     props.history.push("/")
   }
 
-  console.log(ProfileImageUrl)
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep}

@@ -6,10 +6,9 @@ export default (state=[] , action) => {
         case ADD_CAMPGROUND:
             return [...action.campgrounds];
         case LOAD_CAMPGROUND:
-            return[...action.campData]
-            return
+            return state = action.campData
         case DELETE_CAMPGROUND:
-            return state.filter( m => m.id !== action.CampId);
+            return state.filter( m => m._id !== action.id);
         default:
             return state 
     }

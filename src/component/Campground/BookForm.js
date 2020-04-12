@@ -50,8 +50,8 @@ const useStyles = makeStyles((theme) => ({
 export default function BookForm() {
   const classes = useStyles();
   const [email,updateEmail,ResetEmail] = UseInputState("")
-  const [adult,updateAdult,ResetAdult] = UseInputState(0)
-  const [children,updateChildren,ResetChildren] = UseInputState(0)
+  const [adult,updateAdult,ResetAdult] = UseInputState("")
+  const [children,updateChildren,ResetChildren] = UseInputState("")
   const [textField,updateTextField,ResetTextField] = UseInputState("")
   const [checked, setChecked] = React.useState(false);
 

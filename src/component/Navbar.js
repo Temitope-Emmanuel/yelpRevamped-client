@@ -12,7 +12,8 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import MeetingRoomTwoToneIcon from '@material-ui/icons/MeetingRoomTwoTone';
 import PersonAddTwoToneIcon from '@material-ui/icons/PersonAddTwoTone';
 import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
-import  {green} from "@material-ui/core/colors"
+import {withRouter,Link} from "react-router-dom"
+
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -23,6 +24,13 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     display: 'block',
+    "& a":{
+      textDecoration:"none",
+      color:"white",
+      fontSize:"1.1em",
+      fontWeight:"500",
+      letterSpacing:".09em"
+    },
     [theme.breakpoints.up('sm')]: {
       fontSize:"1.5em"
     },
@@ -170,7 +178,9 @@ const Navbar = function({history,handleDialog,user,...props}) {
       <AppBar elevation={2} style={{backgroundColor:"black",color:"white"}} position="static">
         <Toolbar >
           <Typography className={classes.title} variant="h6" noWrap>
+            <Link to="/">
             YelpCamp
+            </Link>
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>{
@@ -210,4 +220,4 @@ const Navbar = function({history,handleDialog,user,...props}) {
 }
 
 
-export default Navbar
+export default withRouter(Navbar)

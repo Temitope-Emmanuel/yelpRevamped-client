@@ -28,15 +28,30 @@ export function loadCampgroundAction(campData){
     }
 }
 
+export function loadAllCampground(){
+    return dispatch => {
+        return new Promise((resolve,reject) => {
+            return apiCall("get","http://localhost:8081/api").then(
+                response => {
+                    dispatch(loadCampgroundAction(response))
+                }
+            ).catch(err => {
+                dispatch(addError(err))
+                reject(err)
+            })
+        })
+    }
+}
 
 export function addNewCampground(campgroundData = {} ){
     return (dispatch,getState) => {
         const state = getState()
         removeError()
         return new Promise((resolve,reject) => {
-            return apiCall("post",`http://localhost:8081/api/user/${state.User.user.id}/campground`,campgroundData).then(
+            return apiCall("post",`http://localhost:8081/api/user/${state.User.user.id}/campground`,{...campgroundData,Date:new Date()}).then(
                 response => {
                     dispatch(addCampgroundAction(response))
+                    console.log(`This is the response `,response)
                     resolve()
                 }
             ).catch(err => {
@@ -46,6 +61,7 @@ export function addNewCampground(campgroundData = {} ){
         })
     }
 }
+
 export function editCampground(campId,campData){
         return(dispatch,getState) => {
             const state = getState()
@@ -83,13 +99,10 @@ export function deleteCampground(campId){
     }
 }
 export function loadCampground(campId){
-    return (dispatch) => {
-        removeError()
-        console.log(`successfull reaching the load api ${campId}`)
+    return (dispatch,getState) => {
         return new Promise((resolve,reject) => {
-            return apiCall("get",`http://localhost:8081/api/campground/${campId}`).then(
+            return apiCall("get",`http://localhost:8081/api/campground/${campId}/comment`).then(
                 response => {
-                    console.log(response)
                     dispatch(loadCampgroundAction(response))
                     resolve()
                 }

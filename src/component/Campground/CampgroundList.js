@@ -9,12 +9,14 @@ const useStyles = makeStyles(theme => ({
     height:"60vh",
     display:"flex",
     flexDirection:"row",
+    position:"relative",
     alignItems:"center",
     flexWrap:"wrap",
     padding:theme.spacing(2),
-    margin:theme.spacing(3),
+    margin:theme.spacing(5),
     cursor:"pointer"
-  }
+  },
+
 }))
 
 
@@ -25,11 +27,10 @@ const CampgroundList = function(props){
 
   return(
     <Box className={classes.root}>
-      <CampgroundCard/>
-      {/* <CampgroundCard/>
-      <CampgroundCard/>
-      <CampgroundCard/>
-      <CampgroundCard/> */}
+      {props.campground.map((m) => (
+          <CampgroundCard key={m._id} content = {m} />
+        
+      ))}
     </Box>
   )
 }
