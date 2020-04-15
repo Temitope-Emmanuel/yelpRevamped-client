@@ -8,18 +8,32 @@ function SlideTransition(props) {
   return <Slide {...props} direction="left" />;
 }
 
-const SnackbarComponent = function({open,handleSnackbar,...props}) {
-  
+const SnackbarComponent = function({alert,addAlert,...props}) {
 
-  return (
-    <div>
+  const [isSnackbar,setSnackbar] = React.useState(Boolean(alert))
+
+  const handleSnackbar = () =>{
+    setSnackbar(!isSnackbar)
+  }
+  React.useEffect(() => {
+    setSnackbar(Boolean(alert))
+    setTimeout(() => {
+      addAlert("")
+    }, 2500)
+
+  },[alert])
+
+  
+  console.log(`There was an alert`,alert)
+   return (
+    <div style={{zIndex:"2000"}}>
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
         autoHideDuration={3000}
         ContentProps={{
             "aria-describedby": "alert-id"
           }}
-        open={open}
+        open={isSnackbar}
         onClose={handleSnackbar}
         action={[
             <IconButton
@@ -32,7 +46,7 @@ const SnackbarComponent = function({open,handleSnackbar,...props}) {
             </IconButton>
           ]}
         TransitionComponent={SlideTransition}
-        message="I love snacks"
+        message={alert}
       />
     </div>
   );

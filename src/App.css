@@ -6,6 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+h3,h3,h5,h6,p,span{
+  font-family: 'Roboto Condensed', sans-serif;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

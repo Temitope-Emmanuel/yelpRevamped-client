@@ -1,6 +1,6 @@
 import {apiCall} from "../../hooks/api"
-import {ADD_CAMPGROUND,LOAD_CAMPGROUND,DELETE_CAMPGROUND,EDIT_CAMPGROUND} from "../actionTypes"
-import {addError,removeError} from "./error"
+import {ADD_CAMPGROUND,LOAD_ALL_CAMPGROUND,LOAD_CAMPGROUND,DELETE_CAMPGROUND,EDIT_CAMPGROUND} from "../actionTypes"
+import {addError,addAlert,removeError} from "./error"
 
 export function addCampgroundAction(campgrounds){
     return {
@@ -27,13 +27,19 @@ export function loadCampgroundAction(campData){
         campData
     }
 }
+export function loadAllCampgroundAction(campData){
+    return{
+        type:LOAD_ALL_CAMPGROUND,
+        campData
+    }
+}
 
 export function loadAllCampground(){
     return dispatch => {
         return new Promise((resolve,reject) => {
-            return apiCall("get","http://localhost:8081/api").then(
+            return apiCall("get","/api").then(
                 response => {
-                    dispatch(loadCampgroundAction(response))
+                    dispatch(loadAllCampgroundAction(response))
                 }
             ).catch(err => {
                 dispatch(addError(err))
@@ -48,10 +54,10 @@ export function addNewCampground(campgroundData = {} ){
         const state = getState()
         removeError()
         return new Promise((resolve,reject) => {
-            return apiCall("post",`http://localhost:8081/api/user/${state.User.user.id}/campground`,{...campgroundData,Date:new Date()}).then(
+            return apiCall("post",`/api/user/${state.User.user.id}/campground`,{...campgroundData,Date:new Date()}).then(
                 response => {
                     dispatch(addCampgroundAction(response))
-                    console.log(`This is the response `,response)
+                    dispatch(addAlert("Campground Successfully Added"))
                     resolve()
                 }
             ).catch(err => {
@@ -67,9 +73,10 @@ export function editCampground(campId,campData){
             const state = getState()
             removeError()
             return new Promise((resolve,reject) => {
-                return apiCall("put",`http://localhost:8081/api/user/${state.User.user.id}/campground/${campId}`,campData).then(
+                return apiCall("put",`/api/user/${state.User.user.id}/campground/${campId}`,campData).then(
                     response => {
                         dispatch(addCampgroundAction(response))
+                        dispatch(addAlert("Campground Successfully Updated"))
                         resolve()
                     }
                 ).catch(err => {
@@ -86,10 +93,11 @@ export function deleteCampground(campId){
         removeError()
         console.log(`This is delete campground the camp id ${campId}`)
         return new Promise((resolve,reject) => {
-            return apiCall("delete",`http://localhost:8081/api/user/${state.User.user.id}/campground/${campId}`).then(
+            return apiCall("delete",`/api/user/${state.User.user.id}/campground/${campId}`).then(
                 response => {
                     dispatch(deleteCampgroundAction(campId))
-                    resolve()
+                    dispatch(addAlert("Campground Has Beed Removed"))
+                    resolve(response)
                 }
             ).catch(err => {
                 dispatch(addError(err))
@@ -100,10 +108,12 @@ export function deleteCampground(campId){
 }
 export function loadCampground(campId){
     return (dispatch,getState) => {
+        removeError()
         return new Promise((resolve,reject) => {
-            return apiCall("get",`http://localhost:8081/api/campground/${campId}/comment`).then(
+            return apiCall("get",`/api/campground/${campId}/comment`).then(
                 response => {
                     dispatch(loadCampgroundAction(response))
+                    // dispatch(addAlert("Welcome to Comment"))
                     resolve()
                 }
             ).catch(err => {

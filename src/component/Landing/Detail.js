@@ -15,8 +15,6 @@ import "./underline.css"
 const useStyles = makeStyles(theme => ({
     root: {
         width:"100%",
-        padding:"0 5%",
-        margin:theme.spacing(5.5,0),
         "& div":{
             textAlign:"center",
             "& a":{
@@ -34,14 +32,43 @@ const useStyles = makeStyles(theme => ({
       iconCardContainer:{
         display:"flex",
         flexDirection:"row",
-        justifyContent:"center",
+        justifyContent:"space-evenly",
         alignItems:"center",
+        width:"100%",
+        [theme.breakpoints.down("sm")]:{
+        flexDirection:"column-reverse"
+        }
+      },
+      mainCardContainer:{
+        width:"30%",
+        margin:theme.spacing(0,1.5),
+        height:"auto",
+        [theme.breakpoints.down("sm")]:{
+            width:"100%"
+        }
+      },
+      iconBox:{
+          width:"100%",
+          height:"13em",
+          backgroundPosition:"center",
+          backgroundRepeat:"no-repeat",
+          backgroundSize:"contain"
+      },
+      detailHolder:{
+          "& h4":{
+              fontSize:"1.9em",
+              fontWeight:"500",
+              opacity:".9",
+              margin:theme.spacing(2,0)
+          },
+          "& p":{
+              fontSize:"1.1em",
+              opacity:".8",
+              lineHeight:"2em"
+          }
       },
       media: {
         height: 140,
-      },
-      cardContainer:{
-          margin:theme.spacing(1.5)
       }
 }))
 
@@ -57,26 +84,18 @@ const Detail = function({icons}){
             </div>
             <Box className={classes.iconCardContainer}>
             {icons.map((m,idx) => (
-            <Card key={idx} className={classes.cardContainer}>
-                <CardActionArea>
-                    <CardMedia
-                    component="img"
-                    className={classes.media}
-                    image={m}
-                    title="Contemplative Reptile"
-                    style={{height:"15em"}}
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        Best Things About Camping
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
-                    </Typography>
-                </CardContent>
-                </CardActionArea>
-            </Card>
+            <Box key={idx} className={classes.mainCardContainer}>
+                <Box style={{backgroundImage:`url(${m})`}} className={classes.iconBox}/>
+                <Box className={classes.detailHolder}>
+                    <h4>Best Thing About Camping</h4>
+                    <p>
+                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                       Eum aspernatur accusantium, reiciendis eveniet soluta harum!
+                        Vel delectus ab odit. Sequi nihil asperiores provident in. 
+                        Cupiditate iusto praesentium obcaecati quae corrupti.
+                    </p>
+                </Box>
+            </Box>
             ))}
             </Box>
         </Container>

@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
         position:"absolute",
         height:"100%",
         width:"100%",
-        backgroundImage:"linear-gradient(145deg,rgba(0,0,0,.1),rgba(0,0,0,.7))"
+        backgroundImage:`linear-gradient(145deg,${green[100]},rgba(0,0,0,.8))`
     },
     carouselContainer:{
         width:"100%",
@@ -73,6 +73,14 @@ const useStyles = makeStyles(theme => ({
                 padding:".6em 1em",
                 fontSize:"1.1em",
                 letterSpacing:".15em"
+            }
+        },
+        [theme.breakpoints.down("md")]:{
+            "& h1":{
+                fontSize:"3em"
+            },
+            "& p":{
+                fontSize:"1.2em"
             }
         }
     }

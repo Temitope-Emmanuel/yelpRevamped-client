@@ -7,9 +7,9 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import {green} from "@material-ui/core/colors"
+import {green,red} from "@material-ui/core/colors"
 
-import {FormControl,FilledInput,InputLabel} from "@material-ui/core";
+import {FormControl,FilledInput,InputLabel,ButtonGroup} from "@material-ui/core";
 import LabelWrapper from "./LabelWrapper"
 import useInputState from "../../hooks/useFormState";
 
@@ -108,8 +108,13 @@ const useStyles = makeStyles((theme) => ({
   resetContainer: {
     padding: theme.spacing(3),
     "& button":{
-      marginLeft:"auto",
       padding:theme.spacing(1,3)
+    },
+    "& div":{
+      display:"flex",
+      flexDirection:"row",
+      justifyContent:"flex-end",
+      alignItems:"center"
     }
   },
   formControl:{
@@ -224,7 +229,8 @@ const getStepContent = (step) => {
                 <FilledInput
                 style={{
                   color:"black"
-                }} size="small" 
+                }} size="small"
+                autoFocus = {idx === activeStep} 
                  type={getStepContent(idx).type || "text"}
                  value={getStepContent(idx).state[0]}
                  onKeyPress = {(e) => (e.which === 13 && handleNext())}
@@ -265,13 +271,20 @@ const getStepContent = (step) => {
             opacity:".8",
             fontWeight:"400"
           }}>All Steps are finished Click Below to submit</p>
+          <ButtonGroup>
           <Button style={{
-            backgroundColor:'black',
-            color:"white",
-            marginLeft:"75%"
+            backgroundColor:red[300],
+            color:red[900],
+          }} onClick={handleBack} type="button" className={classes.button}>
+            Back
+          </Button>
+          <Button style={{
+            backgroundColor:green[300],
+            color:green[900],
           }} onClick={handleSubmit} type="submit" className={classes.button}>
             Submit
           </Button>
+          </ButtonGroup>
         </Paper>
       )}
     </div>

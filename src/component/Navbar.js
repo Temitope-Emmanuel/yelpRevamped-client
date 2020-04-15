@@ -3,7 +3,6 @@ import {makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -12,6 +11,10 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import MeetingRoomTwoToneIcon from '@material-ui/icons/MeetingRoomTwoTone';
 import PersonAddTwoToneIcon from '@material-ui/icons/PersonAddTwoTone';
 import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
+import TerrainRoundedIcon from '@material-ui/icons/TerrainRounded';
+import {Box} from "@material-ui/core"
+import {green} from "@material-ui/core/colors"
+
 import {withRouter,Link} from "react-router-dom"
 
 
@@ -23,13 +26,19 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    display: 'block',
+    display: 'flex',
+    alignItems:"center",
+    "& svg":{
+      fontSize:"2.2em",
+      color:green[900]
+    },
     "& a":{
       textDecoration:"none",
       color:"white",
       fontSize:"1.1em",
       fontWeight:"500",
-      letterSpacing:".09em"
+      letterSpacing:".09em",
+      alignSelf:"center"
     },
     [theme.breakpoints.up('sm')]: {
       fontSize:"1.5em"
@@ -177,11 +186,12 @@ const Navbar = function({history,handleDialog,user,...props}) {
     <div className={classes.grow}>
       <AppBar elevation={2} style={{backgroundColor:"black",color:"white"}} position="static">
         <Toolbar >
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Box className={classes.title}>
+            <TerrainRoundedIcon/>
             <Link to="/">
             YelpCamp
             </Link>
-          </Typography>
+          </Box>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>{
             user.isAuthenticated &&

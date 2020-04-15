@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
         width:"90%",
         border:`solid .8px ${green["A400"]}`,
         borderRadius:".3em",
-        padding:theme.spacing(2)
+        padding:theme.spacing(2),
+        margin:theme.spacing(2)
     },
     mainContainer:{
         backgroundColor:"white",
@@ -36,6 +37,10 @@ const useStyles = makeStyles(theme => ({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
+        [theme.breakpoints.down("sm")]:{
+            flexDirection:"column",
+            justifyContent:"space-between",
+        }
     },
     userDetail:{
         display:"flex",
@@ -51,6 +56,11 @@ const useStyles = makeStyles(theme => ({
                 color:green[900],
                 cursor:"pointer"
             }
+        },
+        [theme.breakpoints.down("sm")]:{
+            marginBottom:"1.5em",
+            flexDirection:"column-reverse",
+            transform:"translateX(14%)"
         }
     },
     buttonContainer:{
@@ -75,7 +85,10 @@ const useStyles = makeStyles(theme => ({
         overflowY:"auto",
         overflowX:"hidden",
         display:"flex",
-        justifyContent:"center"
+        justifyContent:"center",
+        [theme.breakpoints.down("md")]:{
+            minHeight:"25em"
+        }
     }
 }))
 

@@ -6,15 +6,15 @@ import CampgroundCard from "./CampgroundCard"
 const useStyles = makeStyles(theme => ({
   root:{
     width:"100%",
-    height:"60vh",
     display:"flex",
     flexDirection:"row",
     position:"relative",
     alignItems:"center",
-    flexWrap:"wrap",
-    padding:theme.spacing(2),
-    margin:theme.spacing(5),
-    cursor:"pointer"
+    justifyContent:"center",
+    padding:theme.spacing(0,1.5),
+    [theme.breakpoints.down("sm")]:{
+      flexDirection:"column"
+    }
   },
 
 }))
@@ -28,8 +28,8 @@ const CampgroundList = function(props){
   return(
     <Box className={classes.root}>
       {props.campground.map((m) => (
-          <CampgroundCard key={m._id} content = {m} />
-        
+          <CampgroundCard key={m._id} content = {m}
+       />
       ))}
     </Box>
   )

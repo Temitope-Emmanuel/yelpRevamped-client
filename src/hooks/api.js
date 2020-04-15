@@ -14,7 +14,6 @@ export function setTokenHeader(token){
 
 export function apiCall(method,url,payload){
     return new Promise((resolve,reject) => {
-        console.log(`successful call,this is the api`,url)
         return axios[method.toLowerCase()](url,payload).then(
             response => {
                 console.log(response)

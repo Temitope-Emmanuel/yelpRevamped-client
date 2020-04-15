@@ -21,7 +21,6 @@ const DialogComponent = function ({open,history,handleDialog,logout,...user}) {
     handleDialog()
     history.push("/")
   }
-  console.log(history)
   return (
     <div>
       <Dialog

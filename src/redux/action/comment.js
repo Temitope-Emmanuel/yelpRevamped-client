@@ -1,6 +1,6 @@
 import {LOAD_COMMENT,ADD_COMMENT,DELETE_COMMENT} from "../actionTypes"
 import { apiCall } from "../../hooks/api"
-import {addError,removeError} from "./error"
+import {addError,addAlert,removeError} from "./error"
 
 export function loadCommentAction(CampgroundComment){
     return{
@@ -27,9 +27,10 @@ export function loadComment(campId){
     return dispatch => {
              removeError()
         return new Promise((resolve,reject) => {
-            return apiCall("get",`http://localhost:8081/api/campground/${campId}/comment`).then(
+            return apiCall("get",`/api/campground/${campId}/comment`).then(
                 response => {
                     dispatch(loadCommentAction(response))
+                    addAlert("")
                     resolve()
                 }
             ).then(err => {
@@ -49,9 +50,10 @@ export function AddComment(comment){
         }
         const campId = comment.campground
         return new Promise((resolve,reject) => {
-            return apiCall("post",`http://localhost:8081/api/campground/${campId}/comment`,{...comment,user,Date:Date.now()}).then(
+            return apiCall("post",`/api/campground/${campId}/comment`,{...comment,user,Date:Date.now()}).then(
                 response => {
                     dispatch(addCommentAction(response))
+                    dispatch(addAlert("Comment Successfully Added"))
                     resolve()
                 }
             ).catch(err => {
@@ -68,13 +70,14 @@ export function deleteComment(commentId){
         const state = getState()
         const campId = state.Campground._id
         return new Promise((resolve,reject) => {
-            return apiCall("delete",`http://localhost:8081/api/campground/${campId}/comment/${commentId}`).then(
+            return apiCall("delete",`/api/campground/${campId}/comment/${commentId}`).then(
                 response => {
                     dispatch(deleteCommentAction(commentId))
+                    dispatch(addAlert("Comment Has Been removed"))
                     resolve(response)
                 }
             ).catch(err => {
-                addError(err)
+                dispatch(addError(err))
                 reject(err)
             })
         })

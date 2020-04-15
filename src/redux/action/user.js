@@ -1,6 +1,6 @@
 import {apiCall,setTokenHeader} from "../../hooks/api"
 import {SET_CURRENT_USER} from "../actionTypes"
-import {addError,removeError} from "./error"
+import {addError,addAlert,removeError} from "./error"
 
 export function addUser(newUser){
     return{
@@ -18,6 +18,7 @@ export function logOut(){
         localStorage.clear();
         setAuthorizationHeader(false);
         dispatch(addUser({}))
+        dispatch(addAlert("You have successfully logged Out, Sarabada"))
     }
 }
 
@@ -26,12 +27,13 @@ export function logOut(){
 export function authUser(path,userData){
     return dispatch => {
         return new Promise((resolve,reject) => {
-            return apiCall("post",`http://localhost:8081/api/auth/${path}`,{...userData,Date: new Date()}).then(
+            return apiCall("post",`api/auth/${path}`,{...userData,Date: new Date()}).then(
                 ({token,...user}) => {
                     localStorage.setItem("userToken",token);
                     setAuthorizationHeader(token);
                     dispatch(addUser(user))
                     dispatch(removeError())
+                    dispatch(addAlert(`Successfully Logged In,${user.username}`))
                     resolve()
                 }
             ).catch((err) => {

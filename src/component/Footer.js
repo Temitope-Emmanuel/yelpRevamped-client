@@ -4,7 +4,6 @@ import {makeStyles} from "@material-ui/core/styles"
 import {green} from "@material-ui/core/colors"
 import TerrainRoundedIcon from '@material-ui/icons/TerrainRounded';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 
 const useStyles = makeStyles(theme => ({
@@ -14,25 +13,11 @@ const useStyles = makeStyles(theme => ({
         flexDirection:"column",
         alignItems:"flex-end",
         width:"100%",
-        marginTop:theme.spacing(3)
+        marginTop:theme.spacing(3),
+        "& a":{
+            color:"black"
+        }
     },
-    // imageContainer:{
-    //     display:"flex",
-    //     width:"100%",
-    //     margin:"1.7em 0em",
-    //     alignItems:"center",
-    //     "& img":{
-    //         height:"2em",
-    //         margin:".6em"
-    //     },
-    //     [theme.breakpoints.down("sm")]:{
-    //         justifyContent:"flex-start",
-    //         alignItems:"flex-start",
-    //         "& svg":{
-    //             margin:".2em 1em"
-    //         }
-    //     }
-    // },
     socialContainer:{
         width:"100%",
         padding:"2em 0",
@@ -106,9 +91,12 @@ const Footer  = function(){
                     <Box component="span" >FAQ</Box>
                 </Box>
                 <Box className={classes.mediaContainer}>
+                    <a href="https://github.com/Temitope-Emmanuel">
                     <GitHubIcon/>
-                    <LinkedInIcon/>
+                    </a>                   
+                    <a href="https://wa.me/2348050865464">
                     <WhatsAppIcon/>
+                    </a>
                 </Box>
                 <p>
                     Copyright Temitope Emmanuel Ojo 2020.

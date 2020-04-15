@@ -9,9 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {Button,Box} from '@material-ui/core';
 import {Link} from "react-router-dom"
-import {Divider,ButtonGroup,Grow} from '@material-ui/core';
+import {Divider,Grow} from '@material-ui/core';
 import {green,red} from "@material-ui/core/colors"
 import AddForm from "./AddForm"
+import {TransitionGroup,CSSTransition} from "react-transition-group"
+import "../../assets/styles/transition.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +36,14 @@ const useStyles = makeStyles((theme) => ({
   details: {
     height:"100%",
     margin:theme.spacing(0,-.4),
-    fontSize:"1.2em"
+    fontSize:"1.2em",
+    [theme.breakpoints.down("md")]:{
+    display:"flex",
+    flexDirection:"column",
+    "& img":{
+      width:"18em"
+    },
+    }
   },
   column: {
     flexBasis: '33.33%',
@@ -42,6 +51,11 @@ const useStyles = makeStyles((theme) => ({
   helper: {
     borderLeft: `2px solid black`,
     padding: theme.spacing(1, 2),
+    [theme.breakpoints.down("md")]:{
+      borderTop:`.5px solid rgba(0,0,0,.8)`,
+      margin:theme.spacing(1.5,0),
+      borderLeft:"none"
+    }
   },
   link:{
       display:"block",
@@ -78,7 +92,13 @@ const Expansion = function({campground,editCampground,deleteCampground,...props}
 
   return (
       <div className={classes.root}>
-    {campground.map((camp) => (
+        <TransitionGroup>
+      {campground.map((camp) => (
+          <CSSTransition 
+          key={camp._id}
+          classNames="page"
+          timeout={500}
+          >      
       <ExpansionPanel
       className={classes.expansionContainer}
        transitiononprops={{unmountOnExit:true}} 
@@ -137,7 +157,9 @@ const Expansion = function({campground,editCampground,deleteCampground,...props}
           </Button>
         </ExpansionPanelActions>
       </ExpansionPanel>
+          </CSSTransition>
       ))}
+        </TransitionGroup>
       </div>    
   );
 }

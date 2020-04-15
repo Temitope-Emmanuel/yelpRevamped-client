@@ -23,7 +23,7 @@ const Landing = function(props){
 
 function mapStateToProps(state){
     return {
-        campground:state.Campground
+        campground:state.AllCampground
     }
 }
 

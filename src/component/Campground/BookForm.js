@@ -11,7 +11,7 @@ import UseInputState from "../../hooks/useFormState"
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 120
   },
   HeadingContainer:{
     margin:theme.spacing(4,1.5),
@@ -73,7 +73,7 @@ export default function BookForm() {
             <FormControl style={{
               width:"60%"
             }}>
-                <InputLabel htmlFor="email" >Email</InputLabel>
+                <InputLabel htmlFor="email" ><span>Email</span> </InputLabel>
                 <OutlinedInput id="email" value={email} 
                  onChange={updateEmail} 
                  placeholder="you@youremail.com"  />
@@ -82,7 +82,7 @@ export default function BookForm() {
             <FormControl style={{
               width:"35%"
             }} variant="outlined" className={classes.formControl}>
-                <InputLabel id="adult">Number of Adults</InputLabel>
+                <InputLabel id="adult"><span>Number of Adults</span> </InputLabel>
                 <Select
                   labelId="adult"
                   id="demo-simple-select-outlined"
@@ -98,7 +98,6 @@ export default function BookForm() {
                     <MenuItem value={10}>More</MenuItem>
                 </Select>
             </FormControl>
-
           </Box>
             <Box className={classes.subFormContainer}>
               <Box>
@@ -109,7 +108,7 @@ export default function BookForm() {
               <FormControl style={{
                 width:"35%"
               }} variant="outlined" className={classes.formControl}>
-              <InputLabel id="children">Number of Children</InputLabel>
+              <InputLabel id="children"><span>Number of Children</span> </InputLabel>
               <Select
                 labelId="children"
                 id="demo-simple-select-children"

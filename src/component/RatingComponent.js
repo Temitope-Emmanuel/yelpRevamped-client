@@ -56,9 +56,8 @@ const RatingComponent = function(props){
         <div>
             <Rating name="campground-rating"
                IconContainerComponent={IconContainer}
-               size="large"
+               size={props.size || "large"}
                defaultValue={3}
-               getLabelText={(e) => console.log(e)}
           />
         </div>
     )

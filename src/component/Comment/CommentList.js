@@ -47,7 +47,6 @@ const useStyles = makeStyles(theme =>({
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
-        display:"flex",
         flexDirection:"row",
         padding:theme.spacing(0,2)
     }
@@ -74,7 +73,6 @@ const CommentList = function(props){
     }
 
     const comment = props.comment || []
-    console.log(props)
     return(
         <Box className={classes.root}>
             <Box className={classes.commentContainer}>
@@ -93,6 +91,7 @@ const CommentList = function(props){
                       onChange={handleText}
                       onKeyPress={(e) => e.which === 13 && handleSubmit(e)}
                       value={text}
+                      autoFocus={true}
                       placeholder="Input Comment"
                       style={{padding:".3em"}}
                       startAdornment={
