@@ -21,6 +21,9 @@ import {withRouter,Link} from "react-router-dom"
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
+    "& div":{
+      padding:theme.spacing(1)
+    }
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -185,7 +188,7 @@ const Navbar = function({history,handleDialog,user,...props}) {
   return (
     <div className={classes.grow}>
       <AppBar elevation={2} style={{backgroundColor:"black",color:"white"}} position="static">
-        <Toolbar >
+        <Toolbar disableGutters >
           <Box className={classes.title}>
             <TerrainRoundedIcon/>
             <Link to="/">

@@ -29,6 +29,17 @@ const useStyles = makeStyles(theme =>({
         "& h2":{
             fontSize:theme.typography.pxToRem(30),
             fontWeight:"500"
+        },
+        [theme.breakpoints.down("sm")]:{
+            width:"100%",
+            height:"80%",
+            marginTop:"0",
+            "& h2":{
+                fontSize:theme.typography.pxToRem(20),
+                fontWeight:"600",
+                opacity:".8",
+                letterSpacing:".08em"
+            }
         }
     }
 }))

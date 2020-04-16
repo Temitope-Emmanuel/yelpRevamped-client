@@ -37,7 +37,7 @@ export function loadAllCampgroundAction(campData){
 export function loadAllCampground(){
     return dispatch => {
         return new Promise((resolve,reject) => {
-            return apiCall("get","/api").then(
+            return apiCall("get","http://localhost:8081/api").then(
                 response => {
                     dispatch(loadAllCampgroundAction(response))
                 }
@@ -54,7 +54,7 @@ export function addNewCampground(campgroundData = {} ){
         const state = getState()
         removeError()
         return new Promise((resolve,reject) => {
-            return apiCall("post",`/api/user/${state.User.user.id}/campground`,{...campgroundData,Date:new Date()}).then(
+            return apiCall("post",`http://localhost:8081/api/user/${state.User.user.id}/campground`,{...campgroundData,Date:new Date()}).then(
                 response => {
                     dispatch(addCampgroundAction(response))
                     dispatch(addAlert("Campground Successfully Added"))
@@ -73,7 +73,7 @@ export function editCampground(campId,campData){
             const state = getState()
             removeError()
             return new Promise((resolve,reject) => {
-                return apiCall("put",`/api/user/${state.User.user.id}/campground/${campId}`,campData).then(
+                return apiCall("put",`http://localhost:8081/api/user/${state.User.user.id}/campground/${campId}`,campData).then(
                     response => {
                         dispatch(addCampgroundAction(response))
                         dispatch(addAlert("Campground Successfully Updated"))
@@ -93,7 +93,7 @@ export function deleteCampground(campId){
         removeError()
         console.log(`This is delete campground the camp id ${campId}`)
         return new Promise((resolve,reject) => {
-            return apiCall("delete",`/api/user/${state.User.user.id}/campground/${campId}`).then(
+            return apiCall("delete",`http://localhost:8081/api/user/${state.User.user.id}/campground/${campId}`).then(
                 response => {
                     dispatch(deleteCampgroundAction(campId))
                     dispatch(addAlert("Campground Has Beed Removed"))
@@ -110,7 +110,7 @@ export function loadCampground(campId){
     return (dispatch,getState) => {
         removeError()
         return new Promise((resolve,reject) => {
-            return apiCall("get",`/api/campground/${campId}/comment`).then(
+            return apiCall("get",`http://localhost:8081/api/campground/${campId}/comment`).then(
                 response => {
                     dispatch(loadCampgroundAction(response))
                     // dispatch(addAlert("Welcome to Comment"))

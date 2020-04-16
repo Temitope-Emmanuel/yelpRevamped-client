@@ -12,6 +12,11 @@ const useStyles = makeStyles(theme => ({
         height:"90%",
         width:"80%",
         margin:"5% 10%",
+        [theme.breakpoints.down("sm")]:{
+            height:"100%",
+            width:"100%",
+            margin:"0 0"
+        }
     },
     CampgroundContainer:{
         height:"100%",
@@ -33,6 +38,9 @@ const useStyles = makeStyles(theme => ({
             "&:hover":{
                 color:green[700]
             }
+        },
+        [theme.breakpoints.down("sm")]:{
+        padding:theme.spacing(1,0.5)
         }
     },
     sectionContainer:{
@@ -63,9 +71,11 @@ const useStyles = makeStyles(theme => ({
             textAlign:"center"
         },
         [theme.breakpoints.down("md")]:{
-        flexDirection:"row-reverse",
-        width:"98%",
-        height:"30%",
+        flexDirection:"column",
+        alignItems:"center",
+        justifyContent:"center",
+        width:"100%",
+        height:"35%",
         padding:theme.spacing(1),
         }
     },
@@ -75,8 +85,17 @@ const useStyles = makeStyles(theme => ({
         flexDirection:"column",
         height:"40%",
         justifyContent:"space-between",
-        "& img":{
-            marginBottom:"1em"
+    },
+    imageDiv:{
+        width:"23em",
+        height:"13em",
+        backgroundPosition:"center",
+        backgroundRepeat:"no-repeat",
+        backgroundSize:"center",
+        marginBottom:theme.spacing(1.5),
+        [theme.breakpoints.down("xs")]:{
+            width:"18em",
+            height:"12em"
         }
     },
     avatarContainer:{
@@ -97,7 +116,7 @@ const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.down("md")]:{
         flexDirection:"column",
-        alignItems:"flex-start",
+        alignItems:"center",
         }
     },
     panelContainer:{
@@ -156,8 +175,8 @@ const Campground = function({routeProps,addComment,AddComment,creator,deleteComm
                 <Paper className={classes.sectionContainer} elevation={10}>
                        <Box className={classes.userDetail}>
                            <Box className={classes.imageContainer}>
-                           <img height="220" alt={Campground.location}
-                            src={Campground.location} />
+                           <div className={classes.imageDiv} 
+                            style={{backgroundImage:`url(${Campground.location})`}} />
                            <RatingComponent size="large"/>
                            </Box>
                            <Box className={classes.avatarContainer}>

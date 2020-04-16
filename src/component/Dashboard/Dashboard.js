@@ -17,6 +17,10 @@ const useStyles = makeStyles(theme => ({
     large: {
     width: theme.spacing(12),
     height: theme.spacing(12),
+    [theme.breakpoints.down("sm")]:{
+        width: theme.spacing(8),
+        height: theme.spacing(8),
+    }
     },
     dashboardContainer:{
         backgroundColor:"whitesmoke",
@@ -30,7 +34,10 @@ const useStyles = makeStyles(theme => ({
     mainContainer:{
         backgroundColor:"white",
         padding:theme.spacing(1,2.5),
-        borderRadius:".9em"
+        borderRadius:".9em",
+        [theme.breakpoints.down("sm")]:{
+            padding:"0 0"
+        }
     },
     userContainer:{
         display:"flex",
@@ -55,6 +62,9 @@ const useStyles = makeStyles(theme => ({
             "&:hover":{
                 color:green[900],
                 cursor:"pointer"
+            },
+            [theme.breakpoints.down("sm")]:{
+                fontSize:"1.2em"
             }
         },
         [theme.breakpoints.down("sm")]:{
@@ -70,14 +80,24 @@ const useStyles = makeStyles(theme => ({
             color:"rgba(0,0,0,.6)",
             padding:theme.spacing(1.2,2),
             fontSize:"1em"
+        },
+        [theme.breakpoints.down("sm")]:{
+            fontSize:".9em",
+            "& button":{
+                padding:theme.spacing(.8,1)
+            }
         }
     },
     formContainer:{
         margin:theme.spacing(1.5,0),
         padding:theme.spacing(2.5),
+        [theme.breakpoints.down("sm")]:{
+            margin:theme.spacing(.5),
+            padding:"0 0"
+        }
     },
     expansionContainer:{
-        padding:theme.spacing(3),
+        // padding:theme.spacing(1.5),
         border:`solid 2px ${green[700]}`,
         borderRadius:"0 0 2.4em 2.4em",
         backgroundColor:"whitesmoke",
@@ -133,7 +153,7 @@ const Dashboard = function({routeProps,Campground,deleteCampground,editCampgroun
                         </ButtonGroup>
                         </Box>
 
-                        <Collapse in={collapsed} collapsedHeight={20}>
+                        <Collapse in={collapsed} collapsedHeight={15}>
                             <Paper className={classes.formContainer} elevation={10} >
                                 <AddForm 
                                  inputs={['Campground','description',"Add Image"]}

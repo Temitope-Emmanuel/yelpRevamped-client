@@ -61,7 +61,8 @@ const useStyles = makeStyles(theme => ({
             alignSelf:"center",
             color:"white",
             borderRadius:"2em",
-            margin:"1.9em ",
+            padding:"1.1em",
+            margin:"1.7em",
             boxShadow:`0 1.5em 5em .3em ${green[900]}`,
             animationName:"pulse",
             animationDuration:"1.7s",
@@ -70,7 +71,6 @@ const useStyles = makeStyles(theme => ({
             animationTimingFunction:"ease",
             animationDelay:".8s",
             "& span":{
-                padding:".6em 1em",
                 fontSize:"1.1em",
                 letterSpacing:".15em"
             }
@@ -81,8 +81,28 @@ const useStyles = makeStyles(theme => ({
             },
             "& p":{
                 fontSize:"1.2em"
+            },
+            "& button":{
             }
-        }
+        },
+        [theme.breakpoints.down("sm")]:{
+            "& h1":{
+                fontSize:"2em",
+                WebkitTextStroke:"2px black",      
+            },
+            "& p":{
+                fontSize:"1em",
+                letterSpacing:"0"
+            },
+            "& button":{
+                width:"50%",
+                fontSize:"1em",
+                "& span":{
+                    letterSpacing:" .09em !important",
+                    fontSize:".5em"
+                }
+            }
+        },
     }
 }))
 

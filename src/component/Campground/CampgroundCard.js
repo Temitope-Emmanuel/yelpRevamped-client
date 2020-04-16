@@ -10,11 +10,9 @@ import {withRouter} from "react-router-dom"
 const useStyles = makeStyles( theme => ({
   root:{
     height:"15em",
-    // maxWidth:"23%",
     margin:"1%",
     padding:theme.spacing(2),
     position:"relative",
-    overflow:"hidden",
     display:"flex",
     alignItems:"center",
     overflow:"hidden !important",
@@ -104,9 +102,9 @@ const useStyles = makeStyles( theme => ({
 
 const CampgroundCard = ({content,...props}) => {
   const classes = useStyles();
-  const neomorphStyles = useNeumorphShadowStyles()
+  // const neomorphStyles = useNeumorphShadowStyles()
   return (
-    <Box className={cx(classes.root,neomorphStyles.root)}>
+    <Box className={cx(classes.root)}>
         <Box className={classes.cardContainer}
           style={{backgroundImage:`url(${content.location})`}}
          />

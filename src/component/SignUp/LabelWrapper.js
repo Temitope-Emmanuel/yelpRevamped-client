@@ -8,7 +8,7 @@ function App() {
 const color = "#43a047";
 const theme = createMuiTheme({
   palette: {
-    common: { black: color, white: color },
+    common: { black: "#ffffff", white: "#00000" },
     primary: { main: color, dark: color, light: color },
     text: { primary: color, secondary: color }
   }

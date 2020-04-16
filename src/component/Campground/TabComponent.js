@@ -82,8 +82,8 @@ const TabComponent =  function (props) {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab style={{fontWeight:"inherit",fontSize:"1.3em",letterSpacing:".15em"}} label="Comment" {...a11yProps(0)} />
-          <Tab style={{fontWeight:"inherit",fontSize:"1.3em",letterSpacing:".15em"}} label="Book Now" {...a11yProps(1)} />
+          <Tab style={{fontWeight:"inherit",fontSize:"1em",letterSpacing:".15em"}} label="Comment" {...a11yProps(0)} />
+          <Tab style={{fontWeight:"inherit",fontSize:"1em",letterSpacing:".15em"}} label="Book Now" {...a11yProps(1)} />
         </Tabs>
         </LabelWrapper>
       </AppBar>

@@ -34,27 +34,43 @@ const useStyles = makeStyles((theme) => ({
     width:"100%"
   },
   details: {
+    display:"flex",
+    flexDirection:"row",
+    justifyContent:"space-between",
     height:"100%",
     margin:theme.spacing(0,-.4),
     fontSize:"1.2em",
     [theme.breakpoints.down("md")]:{
-    display:"flex",
-    flexDirection:"column",
-    "& img":{
-      width:"18em"
-    },
+      flexDirection:"column",
+      alignItems:"center",
     }
   },
-  column: {
-    flexBasis: '33.33%',
+  imageContainer:{
+    height:"13em",
+    width:"20em",
+    backgroundPosition:"center",
+    backgroundRepeat:"no-repeat",
+    backgroundSize:"fit",
+    backgroundColor:"purple",
+    borderRadius:"1em",
+    [theme.breakpoints.down("xs")]:{
+    width:"100%",
+    height:"8em",
+    backgroundColor:"blue"
+    },
   },
   helper: {
     borderLeft: `2px solid black`,
-    padding: theme.spacing(1, 2),
+    padding: theme.spacing(10, 2),
+    width:"40%",
+    display:"flex",
+    alignItems:"center",
+    flexDirection:"column",
     [theme.breakpoints.down("md")]:{
-      borderTop:`.5px solid rgba(0,0,0,.8)`,
-      margin:theme.spacing(1.5,0),
-      borderLeft:"none"
+      borderLeft:"none",
+      padding:theme.spacing(0,2),
+      width:"100%",
+      height:"40%"
     }
   },
   link:{
@@ -113,17 +129,16 @@ const Expansion = function({campground,editCampground,deleteCampground,...props}
           id={camp._id}>
             <Box className={classes.headingContainer}>
             <Typography className={classes.heading}>{camp.name}</Typography>
-          {expanded !== camp._id ? <img height="30" alt="camp-img" src={camp.location}/> : null}
+          {expanded !== camp._id ? <img height="25" alt="camp-img" src={camp.location}/> : null}
             </Box>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.details}>
-            <img style={{
-                borderRadius:".2em"
-            }} height="150" alt={camp.description} src={camp.location} />
-          <div className={classes.column}>
-          </div>
+            <div className={classes.imageContainer} style={{
+                borderRadius:".5em",
+                backgroundImage:`url(${camp.location})`
+            }} />
           <div className={clsx(classes.column, classes.helper)}>
-            <p className={classes.details} >
+            <p className={classes.detailParagraph} >
                 {camp.description}
             </p>
             <Link to={`/campground/${camp._id}`} 

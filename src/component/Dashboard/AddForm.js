@@ -41,7 +41,7 @@ const ColorlibConnector = withStyles({
   },
 })(StepConnector);
 
-const useColorlibStepIconStyles = makeStyles({
+const useColorlibStepIconStyles = makeStyles(theme => ({
   root: {
     backgroundColor: '#ccc',
     zIndex: 1,
@@ -52,6 +52,14 @@ const useColorlibStepIconStyles = makeStyles({
     borderRadius: '50%',
     justifyContent: 'center',
     alignItems: 'center',
+    [theme.breakpoints.down("sm")]:{
+      width:30,
+      height:30
+    },
+    [theme.breakpoints.up("sm")]:{
+      width:50,
+      height:50
+    }
   },
   active: {
     backgroundImage:
@@ -62,7 +70,7 @@ const useColorlibStepIconStyles = makeStyles({
     backgroundImage:
       'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
   },
-});
+}));
 
 function ColorlibStepIcon(props) {
   const classes = useColorlibStepIconStyles();
@@ -96,9 +104,24 @@ ColorlibStepIcon.propTypes = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    display:"flex",
+    flexDirection:"column",
+    alignItems:"center",
+    "& .MuiStepper-root":{
+      padding:theme.spacing(.5,0),
+    },
+    "& .MuiFormLabel-root":{
+      [theme.breakpoints.down("sm")]:{
+        fontSize:".8em",
+        color:"black"
+      }
+    }
   },
   detailContainer:{
-      transform:"translateX(45%)"
+    width:"100%",
+    display:"inherit",
+    justifyContent:"center",
+    margin:theme.spacing(.5,0)
   }
 }));
 
@@ -116,7 +139,7 @@ const AddForm = function({addCampground,editCampground,inputs,...props}) {
   const [image,updateImage,ResetImage] = UseInputState("")
   const steps = getSteps();
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     if(activeStep === steps.length){
         props.useHandleCollapsed()
         setActiveStep(0)
@@ -159,7 +182,7 @@ const AddForm = function({addCampground,editCampground,inputs,...props}) {
       case 1:
         return ["description","Add a Description",description,updateDescription];
       case 2:
-        return ["image","Add Image",image,updateImage];
+        return ["image","Add Image Url",image,updateImage];
       default:
         return 'Unknown step';
     }
@@ -174,7 +197,8 @@ const AddForm = function({addCampground,editCampground,inputs,...props}) {
                 <Grow in={activeStep === idx} >
                         <FormControl>
                             <InputLabel htmlFor={getStepContent(idx)[0]} >{getStepContent(idx)[1]} </InputLabel>
-                            <FilledInput onKeyPress={(e) => e.which === 13 ? handleNext() : null}
+                            <FilledInput required style={{width:"100%"}} 
+                             onKeyPress={(e) => e.which === 13 ? handleNext() : null}
                              onChange={getStepContent(idx)[3]}
                              value={getStepContent(idx)[2]} 
                              id={getStepContent(idx)[0]}  

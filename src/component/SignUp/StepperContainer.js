@@ -85,11 +85,8 @@ const useStyles = makeStyles((theme) => ({
       borderLeft:"3px solid black",
       margin:"0 1.05em",
       borderRadius:'0 0 0 .2em'
-    },
-    "& div":{
-      backgroundColor:"whitesmoke"
     }
-  },
+   },
   button: {
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -97,12 +94,19 @@ const useStyles = makeStyles((theme) => ({
   actionsContainer: {
     marginBottom: theme.spacing(1),
     paddingLeft:"30%",
-    [theme.breakpoints.down("md")]:{
-      paddingLeft:"50%"
-    },
     "& button":{
       borderRadius:"1.1em 0 1.1em 0",
       color:"black",
+    },
+    [theme.breakpoints.down("md")]:{
+      paddingLeft:"50%"
+    },
+    [theme.breakpoints.down("sm")]:{
+      width:"90%",
+      paddingLeft:"auto",
+      "& button":{
+        fontSize:".8em"
+      }
     }
   },
   resetContainer: {
@@ -227,6 +231,7 @@ const getStepContent = (step) => {
                 htmlFor={getStepContent(idx).Label}>{getStepContent(idx).Label}</InputLabel>
                   <LabelWrapper>
                 <FilledInput
+                required={true}
                 style={{
                   color:"black"
                 }} size="small"

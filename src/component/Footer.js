@@ -46,8 +46,16 @@ const useStyles = makeStyles(theme => ({
         "& svg":{
             fontSize:"4.7em",
             marginRight:".1em",
-            color:green[400]
+            color:green[400],
         },
+        [theme.breakpoints.down("sm")]:{
+            "& svg":{
+                fontSize:"2.3em"
+            },
+            "& h3":{
+                fontSize:"1.4em"
+            }
+        }
     },
     listContainer:{
         display:"flex",
@@ -81,7 +89,7 @@ const Footer  = function(){
             <Box className={classes.socialContainer}>
                 <Box className={classes.brandContainer}>
                     <TerrainRoundedIcon/>
-                    <h3>Yelpcamp</h3>
+                    <h3>YelpCamp</h3>
                 </Box>
                 <Box className={classes.listContainer}>
                     <Box component="span" >Home</Box>

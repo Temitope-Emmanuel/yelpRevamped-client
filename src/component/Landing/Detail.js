@@ -3,10 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import {Container,Box} from "@material-ui/core"
 import {Icon1,Icon2,Icon3} from "../../assets/images/campground icons"
 import {green} from "@material-ui/core/colors"
@@ -40,6 +36,9 @@ const useStyles = makeStyles(theme => ({
         }
       },
       mainCardContainer:{
+        display:"flex",
+        flexDirection:"column",
+        alignItems:"center",
         width:"30%",
         margin:theme.spacing(0,1.5),
         height:"auto",
@@ -52,7 +51,11 @@ const useStyles = makeStyles(theme => ({
           height:"13em",
           backgroundPosition:"center",
           backgroundRepeat:"no-repeat",
-          backgroundSize:"contain"
+          backgroundSize:"contain",
+          [theme.breakpoints.down("sm")]:{
+              width:"70%",
+              height:"9em"
+          }
       },
       detailHolder:{
           "& h4":{
@@ -65,6 +68,16 @@ const useStyles = makeStyles(theme => ({
               fontSize:"1.1em",
               opacity:".8",
               lineHeight:"2em"
+          },
+          [theme.breakpoints.down("sm")]:{
+              "& h4":{
+                  fontSize:"1.2em",
+                  opacity:"1"
+              },
+              "& p":{
+                  fontSize:".9em",
+                  lineHeight:"1.2em"
+              }
           }
       },
       media: {
@@ -85,7 +98,8 @@ const Detail = function({icons}){
             <Box className={classes.iconCardContainer}>
             {icons.map((m,idx) => (
             <Box key={idx} className={classes.mainCardContainer}>
-                <Box style={{backgroundImage:`url(${m})`}} className={classes.iconBox}/>
+                <Box style={{backgroundImage:`url(${m})`}} 
+                 className={classes.iconBox}/>
                 <Box className={classes.detailHolder}>
                     <h4>Best Thing About Camping</h4>
                     <p>

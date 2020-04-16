@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme =>({
     commentContainer:{
         overflowY:"auto",
         maxHeight:"30em",
-        minHeight:"20em",
+        minHeight:"10em",
         width:"100%",
         marginBottom:theme.spacing(7)
     },
@@ -75,19 +75,13 @@ const CommentList = function(props){
     const comment = props.comment || []
     return(
         <Box className={classes.root}>
-            <Box className={classes.commentContainer}>
-            {comment.map(m => (
-                <Box key={m._id}>
-                    <Comment {...m} deleteComment={props.deleteComment} creator={props.creator} />
-                </Box>
-            ))}
-            </Box>
             <Box className={classes.SlideContainer}>
                 <Slide direction="right" 
                  unmountOnExit mountOnEnter
                  timeout={800} in={isVisible}>
                 <FormControl  style={{margin:".4em"}} className={classes.inputContainer}>
                      <Input name="comment"
+                     required={true}
                       onChange={handleText}
                       onKeyPress={(e) => e.which === 13 && handleSubmit(e)}
                       value={text}
@@ -120,6 +114,13 @@ const CommentList = function(props){
                         style={{backgroundColor:"rgba(255,255,255,.7)"}} />
                     </IconButton>
                 </Slide>
+            </Box>
+            <Box className={classes.commentContainer}>
+            {comment.map(m => (
+                <Box key={m._id}>
+                    <Comment {...m} deleteComment={props.deleteComment} creator={props.creator} />
+                </Box>
+            ))}
             </Box>
         </Box>
     )
