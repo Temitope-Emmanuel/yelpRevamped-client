@@ -27,7 +27,7 @@ export function logOut(){
 export function authUser(path,userData){
     return dispatch => {
         return new Promise((resolve,reject) => {
-            return apiCall("post",`http://localhost:8081/api/auth/${path}`,{...userData,Date: new Date()}).then(
+            return apiCall("post",`/api/auth/${path}`,{...userData,Date: new Date()}).then(
                 ({token,...user}) => {
                     localStorage.setItem("userToken",token);
                     setAuthorizationHeader(token);

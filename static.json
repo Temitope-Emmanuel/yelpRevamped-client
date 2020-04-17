@@ -4,8 +4,8 @@
         "/**":"index.html"
     },
     "proxies":{
-        "http://localhost:8081/api":{
-            "origin":"http://yelpcamp-server.herokuapp.com/api"
+        "/api":{
+            "origin":"https://yelpcamp-server.herokuapp.com/api"
         }
     }
 }

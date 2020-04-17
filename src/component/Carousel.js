@@ -85,10 +85,10 @@ const useStyles = makeStyles(theme => ({
             "& button":{
             }
         },
-        [theme.breakpoints.down("sm")]:{
+        [theme.breakpoints.down("xs")]:{
             "& h1":{
                 fontSize:"2em",
-                WebkitTextStroke:"2px black",      
+                WebkitTextStroke:"1px black",      
             },
             "& p":{
                 fontSize:"1em",
