@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
     "& div":{
-      padding:theme.spacing(1)
+      padding:theme.spacing(0,0.5)
     }
   },
   menuButton: {
