@@ -3,9 +3,10 @@
     "routes":{
         "/**":"index.html"
     },
+    "https_only": true,
     "proxies":{
-        "/api":{
-            "origin":"https://yelpcamp-server.herokuapp.com/api"
+        "/api/":{
+            "origin":"${API_URL}"
         }
     }
 }

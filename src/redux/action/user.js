@@ -38,6 +38,7 @@ export function authUser(path,userData){
                 }
             ).catch((err) => {
                 dispatch(addError(err.message))
+                dispatch(addAlert(err.message))
                 reject()
             })
         })

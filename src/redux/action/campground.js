@@ -37,7 +37,7 @@ export function loadAllCampgroundAction(campData){
 export function loadAllCampground(){
     return dispatch => {
         return new Promise((resolve,reject) => {
-            return apiCall("get","https://yelpcamp-server.herokuapp.com/api").then(
+            return apiCall("get","/api").then(
                 response => {
                     dispatch(loadAllCampgroundAction(response))
                     resolve(response)
@@ -111,10 +111,9 @@ export function loadCampground(campId){
     return (dispatch,getState) => {
         removeError()
         return new Promise((resolve,reject) => {
-            return apiCall("get",`https://yelpcamp-server.herokuapp.com/api/campground/${campId}/comment`).then(
+            return apiCall("get",`/api/campground/${campId}/comment`).then(
                 response => {
                     dispatch(loadCampgroundAction(response))
-                    // dispatch(addAlert("Welcome to Comment"))
                     resolve()
                 }
             ).catch(err => {

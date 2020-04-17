@@ -77,7 +77,8 @@ const useStyles = makeStyles(theme => ({
               "& p":{
                   fontSize:".9em",
                   lineHeight:"1.2em"
-              }
+              },
+              padding:theme.spacing(0,3)
           }
       },
       media: {
