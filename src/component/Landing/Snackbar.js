@@ -24,7 +24,6 @@ const SnackbarComponent = function({alert,addAlert,...props}) {
   },[alert])
 
   
-  console.log(`There was an alert`,alert)
    return (
     <div style={{zIndex:"2000"}}>
       <Snackbar
@@ -52,4 +51,4 @@ const SnackbarComponent = function({alert,addAlert,...props}) {
   );
 }
 
-export default SnackbarComponent
+export default React.memo(SnackbarComponent)

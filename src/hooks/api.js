@@ -16,11 +16,15 @@ export function apiCall(method,url,payload){
     return new Promise((resolve,reject) => {
         return axios[method.toLowerCase()](url,payload).then(
             response => {
-                console.log(response)
                 return resolve(response.data)
             }
-        ).catch(err => (
-            reject(err.response.data.error)
-        ))
+        ).catch(err => {
+            if(err.response){
+              reject(err.response.data.error)
+            }else{
+                reject("Network unavailable")
+            }
+        }
+        )
     })
 }

@@ -40,7 +40,7 @@ export function loadAllCampground(){
             return apiCall("get","https://yelpcamp-server.herokuapp.com/api/").then(
                 response => {
                     dispatch(loadAllCampgroundAction(response))
-                    resolve(response)
+                    resolve()
                 }
             ).catch(err => {
                 dispatch(addError(err))

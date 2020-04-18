@@ -5,16 +5,15 @@ import CampgroundCard from "./CampgroundCard"
 
 const useStyles = makeStyles(theme => ({
   root:{
-    width:"100%",
-    display:"flex",
-    flexDirection:"row",
-    position:"relative",
-    alignItems:"center",
-    justifyContent:"center",
-    padding:theme.spacing(0,1.5),
-    [theme.breakpoints.down("sm")]:{
-      flexDirection:"column"
-    }
+    width:"95%",
+    display:"grid",
+    margin:"2.5%",
+    gridGap:".25em",
+    gridTemplateColumns:"repeat(auto-fit,minmax(18em,1fr))",
+    gridAutoRows:"20em",
+    alignItems:"baseline",
+    gridAutoFlow:"dense",
+    
   },
 
 }))

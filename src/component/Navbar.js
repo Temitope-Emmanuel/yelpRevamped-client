@@ -46,6 +46,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       fontSize:"1.5em"
     },
+    [theme.breakpoints.down("xs")]:{
+      "& a":{
+        display:"none"
+      }
+    }
   },
   sectionDesktop: {
     display: 'none',

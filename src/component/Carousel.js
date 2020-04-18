@@ -86,16 +86,22 @@ const useStyles = makeStyles(theme => ({
             }
         },
         [theme.breakpoints.down("xs")]:{
+            alignItems:"center",
             "& h1":{
                 fontSize:"2em",
-                WebkitTextStroke:"1px black",      
+                WebkitTextStroke:".8px black",   
+                margin:"0 0 !important"   
             },
             "& p":{
-                fontSize:"1em",
-                letterSpacing:"0"
+                fontSize:"1.3em",
+                letterSpacing:"0",
+                lineHeight:"1em",
+                textAlign:"center",
+                margin:theme.spacing(2,0)
             },
             "& button":{
                 width:"50%",
+                display:"none",
                 fontSize:"1em",
                 "& span":{
                     letterSpacing:" .09em !important",
