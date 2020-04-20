@@ -34,8 +34,6 @@ const useStyles = makeStyles(theme => ({
         flexDirection:"row",
         justifyContent:"space-evenly",
         alignItems:"center",
-        backgroundColor:"blue",
-        // width:"100%",
         [theme.breakpoints.down("sm")]:{
         flexDirection:"column-reverse"
         }

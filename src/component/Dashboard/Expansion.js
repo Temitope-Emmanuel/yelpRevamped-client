@@ -31,7 +31,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection:"row",
     justifyContent:"space-between",
     alignItems:"center",
-    width:"100%"
+    width:"100%",
+    textTransform:"capitalize",
+    [theme.breakpoints.down("xs")]:{
+      fontSize:".8em"
+    }
   },
   details: {
     display:"flex",

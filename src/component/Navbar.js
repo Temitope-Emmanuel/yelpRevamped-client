@@ -49,6 +49,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]:{
       "& a":{
         display:"none"
+      },
+      "& svg":{
+        fontSize:"2.5em"
       }
     }
   },
@@ -194,7 +197,7 @@ const Navbar = function({history,handleDialog,user,...props}) {
     <div className={classes.grow}>
       <AppBar elevation={2} style={{backgroundColor:"black",color:"white"}} position="static">
         <Toolbar disableGutters >
-          <Box className={classes.title}>
+          <Box onClick={() => closeMenu("/")} className={classes.title}>
             <TerrainRoundedIcon/>
             <Link to="/">
             YelpCamp
