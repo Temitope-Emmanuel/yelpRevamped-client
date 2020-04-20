@@ -11,6 +11,10 @@ import "./underline.css"
 const useStyles = makeStyles(theme => ({
     root: {
         width:"100%",
+        margin:"3em auto",
+        display:"flex",
+        justifyContent:"center",
+        flexDirection:'column',
         "& div":{
             textAlign:"center",
             "& a":{
@@ -30,7 +34,8 @@ const useStyles = makeStyles(theme => ({
         flexDirection:"row",
         justifyContent:"space-evenly",
         alignItems:"center",
-        width:"100%",
+        backgroundColor:"blue",
+        // width:"100%",
         [theme.breakpoints.down("sm")]:{
         flexDirection:"column-reverse"
         }

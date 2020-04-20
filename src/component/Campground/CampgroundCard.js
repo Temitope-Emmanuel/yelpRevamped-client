@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
@@ -10,16 +9,17 @@ const useStyles = makeStyles( theme => ({
   root:{
     position:"relative",
     display:"flex",
-    height:"auto",
+    height:"100%",
     width:"auto",
-    alignItems:"flex-start",
+    alignItems:"center",
     justifyContent:"center",
     overflow:"hidden !important",
     borderRadius:".5em",
   },
   imageContainer:{
     maxHeight:"100%",
-    maxWidth:"100%"
+    maxWidth:"100%",
+    objectFit:"cover",
   },
   overlayContainer:{
     position:"absolute",
@@ -36,7 +36,7 @@ const useStyles = makeStyles( theme => ({
     },
     "&:hover":{
       "& .MuiBox-root":{
-        height:"70%",
+        height:"65%",
         opacity:"1"
       },
       "& .MuiAvatar-root":{

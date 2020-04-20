@@ -18,24 +18,26 @@ const useStyles = makeStyles(theme =>({
     },
     formContainer:{
         width:"80%",
-        height:"75%",
+        height:"70%",
         backgroundColor:"whitesmoke",
         display:"flex",
+        padding:"1em",
         justifyContent:"center",
         flexDirection:"column",
+        justifyContent:"center",
         alignItems:"center",
         borderRadius:".3em",
         marginTop:"6em",
         "& h2":{
-            fontSize:theme.typography.pxToRem(30),
-            fontWeight:"500"
+            fontSize:"2em",
+            fontWeight:"500",
         },
         [theme.breakpoints.down("sm")]:{
             width:"100%",
             height:"80%",
             marginTop:"0",
             "& h2":{
-                fontSize:theme.typography.pxToRem(20),
+                fontSize:"1.6em",
                 fontWeight:"600",
                 opacity:".8",
                 letterSpacing:".08em"
@@ -46,9 +48,6 @@ const useStyles = makeStyles(theme =>({
 
 
 const SignUp = function(props){
-
-
-
 
     const classes = useStyles()
     return(

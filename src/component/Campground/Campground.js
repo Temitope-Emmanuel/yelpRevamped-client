@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
         height:"100%",
         margin:theme.spacing(1,0),
         padding:theme.spacing(1),
-        width:"30%",
+        width:"45%",
         display:"flex",
         justifyContent:"center",
         flexDirection:"column",
@@ -87,11 +87,15 @@ const useStyles = makeStyles(theme => ({
         justifyContent:"space-between",
     },
     imageDiv:{
-        width:"23em",
-        height:"13em",
+        // width:"25em",
+        // height:"15em",
+        maxHeight:"100%",
+        maxWidth:"100%",
+        objectFit:"cover",
         backgroundPosition:"center",
         backgroundRepeat:"no-repeat",
         backgroundSize:"center",
+        borderRadius:".3em",
         marginBottom:theme.spacing(1.5),
         [theme.breakpoints.down("xs")]:{
             width:"18em",
@@ -120,7 +124,8 @@ const useStyles = makeStyles(theme => ({
         }
     },
     panelContainer:{
-        width:"75%",
+        width:"55%",
+        height:"auto",
         [theme.breakpoints.down("md")]:{
             width:"98%"
         }
@@ -175,8 +180,8 @@ const Campground = function({routeProps,addComment,AddComment,creator,deleteComm
                 <Paper className={classes.sectionContainer} elevation={10}>
                        <Box className={classes.userDetail}>
                            <Box className={classes.imageContainer}>
-                           <div className={classes.imageDiv} 
-                            style={{backgroundImage:`url(${Campground.location})`}} />
+                           <img alt="campground-img" className={classes.imageDiv}
+                            src={Campground.location} />
                            <RatingComponent size="large"/>
                            </Box>
                            <Box className={classes.avatarContainer}>

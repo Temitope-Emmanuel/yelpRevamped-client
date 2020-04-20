@@ -18,19 +18,26 @@ import HttpsTwoToneIcon from '@material-ui/icons/HttpsTwoTone';
 import EmailTwoToneIcon from '@material-ui/icons/EmailTwoTone';
 import PhotoCameraTwoToneIcon from '@material-ui/icons/PhotoCameraTwoTone';
 
-const useColorlibStepIconStyles = makeStyles({
+const useColorlibStepIconStyles = makeStyles(theme => ({
     root: {
       backgroundColor: 'whitesmoke',
       color:"black",
       zIndex: 1,
-      width: 60,
-      height: 60,
+      width: 55,
+      height: 55,
       display: 'flex',
       borderRadius: '50%',
       justifyContent: 'center',
       alignItems: 'center',
       "& svg":{
         fontSize:"2.1em"
+      },
+      [theme.breakpoints.down("xs")]:{
+        width:35,
+        height:35,
+        "& svg":{
+          fontSize:"1.3em"
+        }
       }
     },
     active: {
@@ -41,7 +48,7 @@ const useColorlibStepIconStyles = makeStyles({
     completed: {
       backgroundColor:green[600]
     },
-  });
+  }));
   
   function ColorlibStepIcon(props) {
     const classes = useColorlibStepIconStyles();
@@ -70,6 +77,12 @@ const useColorlibStepIconStyles = makeStyles({
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    height:"90%",
+    margin:"auto 0",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    flexDirection:"column",
     '& label.Mui-focused': {
       color: green[500],
       fontSize:"1.1em",
@@ -79,12 +92,26 @@ const useStyles = makeStyles((theme) => ({
       borderLeft:"3px solid black",
       margin:"0 1.8em",
       marginTop:".2em",
-      borderRadius:'.2em 0 0 0'
-    },
+      borderRadius:'.2em 0 0 0',
+      [theme.breakpoints.down("xs")]:{
+        marginTop:".2em",
+        margin:"0 1em"
+      }
+    }, 
     "& .MuiStepConnector-lineVertical":{
       borderLeft:"3px solid black",
       margin:"0 1.05em",
-      borderRadius:'0 0 0 .2em'
+      borderRadius:'0 0 0 .2em',
+      [theme.breakpoints.down("xs")]:{
+        margin:"0 .2em"
+      }
+    },
+    "& .MuiStepper-root":{
+      width:"60%",
+      [theme.breakpoints.down("xs")]:{
+        width:"90%",
+        padding:".2em !important"
+      }
     }
    },
   button: {
@@ -92,25 +119,24 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
   actionsContainer: {
-    marginBottom: theme.spacing(1),
-    paddingLeft:"30%",
+    display:"flex",
+    justifyContent:"flex-end",
+    width:"70%",
     "& button":{
       borderRadius:"1.1em 0 1.1em 0",
       color:"black",
     },
-    [theme.breakpoints.down("md")]:{
-      paddingLeft:"50%"
-    },
-    [theme.breakpoints.down("sm")]:{
-      width:"90%",
-      paddingLeft:"auto",
+    [theme.breakpoints.down("xs")]:{
       "& button":{
-        fontSize:".8em"
-      }
+        fontSize:".8em",
+        padding:".3em 0"
+      },
+      width:"100%"
     }
   },
   resetContainer: {
-    padding: theme.spacing(3),
+    width:"auto",
+    padding: theme.spacing(1,2),
     "& button":{
       padding:theme.spacing(1,3)
     },
@@ -119,11 +145,23 @@ const useStyles = makeStyles((theme) => ({
       flexDirection:"row",
       justifyContent:"flex-end",
       alignItems:"center"
-    }
+    },
+    "& p":{
+      margin:"0 0",
+      fontSize:"1.2em",
+      opacity:".8",
+      fontWeight:"400",
+    },
+     [theme.breakpoints.down("xs")]:{
+       fontSize:".9em",
+       "& button":{
+         padding:".3em .1em"
+       }
+     }
   },
   formControl:{
-    width:"50%",
-    [theme.breakpoints.down("sm")]:{
+    width:"70%",
+    [theme.breakpoints.down("xs")]:{
       width:"100%"
     }
   }
@@ -245,7 +283,6 @@ const getStepContent = (step) => {
                   </LabelWrapper>
               </FormControl>
               <div className={classes.actionsContainer}>
-                <div>
                   <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}
@@ -261,7 +298,6 @@ const getStepContent = (step) => {
                   >
                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                   </Button>
-                </div>
               </div>
             </StepContent>
           </Step>
@@ -271,11 +307,7 @@ const getStepContent = (step) => {
         <Paper style={{
           backgroundColor:"whitesmoke"
         }} square elevation={5} className={classes.resetContainer}>
-          <p style={{
-            fontSize:"1.2em",
-            opacity:".8",
-            fontWeight:"400"
-          }}>All Steps are finished Click Below to submit</p>
+          <p> All Steps are finished Click Below to submit</p>
           <ButtonGroup>
           <Button style={{
             backgroundColor:red[300],

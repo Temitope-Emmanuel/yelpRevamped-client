@@ -7,13 +7,13 @@ const useStyles = makeStyles(theme => ({
   root:{
     width:"95%",
     display:"grid",
-    margin:"2.5%",
-    gridGap:".25em",
-    gridTemplateColumns:"repeat(auto-fit,minmax(18em,1fr))",
-    gridAutoRows:"20em",
-    alignItems:"baseline",
-    gridAutoFlow:"dense",
-    
+    minHeight:"50vh",
+    margin:"3em auto",
+    gridGap:".5em",
+    gridTemplateColumns:"repeat(auto-fit,minmax(17em,auto))",
+    gridAutoRows:"minmax(18em,auto)",
+    alignItems:"center",
+    justifyItems:"center",
   },
 
 }))
