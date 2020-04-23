@@ -1,9 +1,6 @@
 import React from "react";
 import { Input, createMuiTheme, MuiThemeProvider } from "@material-ui/core";
 
-function App() {
-  return <Input value="Test" />;
-}
 
 const color = "#43a047";
 const theme = createMuiTheme({

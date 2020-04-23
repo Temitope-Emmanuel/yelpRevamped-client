@@ -23,9 +23,9 @@ const useStyles = makeStyles( theme => ({
   },
   overlayContainer:{
     position:"absolute",
+    backgroundColor:"rgba(0,0,0,0.2)",
     height:"100%",
     width:"100%",
-    backgroundColor:"rgba(0,0,0,0.1)",
     display:"flex",
     alignItems:"center",
     justifyContent:"flex-end",
@@ -34,17 +34,20 @@ const useStyles = makeStyles( theme => ({
     "& .MuiAvatar-root":{
       transition:"all .4s ease"
     },
-    "&:hover":{
-      "& .MuiBox-root":{
-        height:"65%",
-        opacity:"1"
+    [theme.breakpoints.up("md")]:{
+      backgroundColor:"rgba(0,0,0,0.1)",
+      "&:hover":{
+        "& .MuiBox-root":{
+          height:"65%",
+          opacity:"1"
+        },
+        "& .MuiAvatar-root":{
+          height:theme.spacing(9),
+          width:theme.spacing(9)
+        },
+        backgroundColor:"rgba(0,0,0,.6)"
       },
-      "& .MuiAvatar-root":{
-        height:theme.spacing(9),
-        width:theme.spacing(9)
-      },
-      backgroundColor:"rgba(0,0,0,.6)"
-    },
+    } 
   },
   userContainer:{
     display:"flex",
@@ -61,22 +64,24 @@ const useStyles = makeStyles( theme => ({
       height:"65%",
       opacity:"8"
     },
-    "&:hover":{
-      "& h4,p":{
-        opacity:"1"
-      }
-    },
-    "& h4":{
-      fontSize:"2em",
-      fontWeight:"400",
-      opacity:".7",
-      margin:".5em 0"
-    },
-    "& p":{
-      fontSize:"1.2em",
-      opacity:".7",
-      margin:".3em 0"
-    },
+    [theme.breakpoints.up("md")]:{
+      "&:hover":{
+        "& h4,p":{
+          opacity:"1"
+        }
+      },
+      "& h4":{
+        fontSize:"2em",
+        fontWeight:"400",
+        opacity:".7",
+        margin:".5em 0"
+      },
+      "& p":{
+        fontSize:"1.2em",
+        opacity:".7",
+        margin:".3em 0"
+      },
+    }
   }
 })) 
 
@@ -84,7 +89,7 @@ const CampgroundCard = ({content,...props}) => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <img className={classes.imageContainer} src={content.location} />
+      <img alt="campground" className={classes.imageContainer} src={content.location} />
          <Box className={classes.overlayContainer}>
            <Avatar src={content.user.profileImgUrl} />
            <Box onClick={() => props.history.push(`/campground/${content._id}`)}

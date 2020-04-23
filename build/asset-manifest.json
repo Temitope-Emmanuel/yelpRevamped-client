@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1e28aeb4.chunk.css",
+    "main.js": "/static/js/main.ae6b7983.chunk.js",
+    "main.js.map": "/static/js/main.ae6b7983.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c4db932a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c4db932a.js.map",
+    "static/js/2.4598eecb.chunk.js": "/static/js/2.4598eecb.chunk.js",
+    "static/js/2.4598eecb.chunk.js.map": "/static/js/2.4598eecb.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.dbffc97c031631d2721623428ed6331e.js": "/precache-manifest.dbffc97c031631d2721623428ed6331e.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.1e28aeb4.chunk.css.map": "/static/css/main.1e28aeb4.chunk.css.map",
+    "static/js/2.4598eecb.chunk.js.LICENSE.txt": "/static/js/2.4598eecb.chunk.js.LICENSE.txt",
+    "static/media/campfire.png": "/static/media/campfire.70a9ac52.png",
+    "static/media/nature.png": "/static/media/nature.ee796683.png",
+    "static/media/tent.png": "/static/media/tent.fc784b5b.png",
+    "static/media/undraw_Country_side_k696.svg": "/static/media/undraw_Country_side_k696.f0996463.svg",
+    "static/media/undraw_before_dawn_bqrj.svg": "/static/media/undraw_before_dawn_bqrj.8d1efe7e.svg",
+    "static/media/undraw_campfire_s6y4.svg": "/static/media/undraw_campfire_s6y4.bd22d22e.svg",
+    "static/media/undraw_into_the_night_vumi.svg": "/static/media/undraw_into_the_night_vumi.588689a0.svg",
+    "static/media/undraw_nature_fun_n9lv.svg": "/static/media/undraw_nature_fun_n9lv.3616ad66.svg",
+    "static/media/undraw_through_the_park_lxnl.svg": "/static/media/undraw_through_the_park_lxnl.c8c2ac61.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c4db932a.js",
+    "static/js/2.4598eecb.chunk.js",
+    "static/css/main.1e28aeb4.chunk.css",
+    "static/js/main.ae6b7983.chunk.js"
+  ]
+}

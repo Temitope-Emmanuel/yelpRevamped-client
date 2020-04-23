@@ -24,7 +24,6 @@ const useStyles = makeStyles(theme =>({
         padding:"1em",
         justifyContent:"center",
         flexDirection:"column",
-        justifyContent:"center",
         alignItems:"center",
         borderRadius:".3em",
         marginTop:"6em",

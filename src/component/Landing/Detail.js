@@ -1,8 +1,5 @@
 import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import {Container,Box} from "@material-ui/core"
 import {Icon1,Icon2,Icon3} from "../../assets/images/campground icons"
 import {green} from "@material-ui/core/colors"
