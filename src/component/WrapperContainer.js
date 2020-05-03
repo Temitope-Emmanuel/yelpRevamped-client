@@ -9,7 +9,6 @@ import {logOut} from "../redux/action/user"
 import {withRouter} from "react-router-dom"
 import {addAlert} from "../redux/action/error"
 
-
 const useStyles = makeStyles(theme =>({
     root:{
         overflowX:"hidden"
@@ -24,7 +23,7 @@ const Page = function({children,...props}){
 
     const classes = useStyles()
     return(
-        <div className={classes.root}>
+        <div className="page">
             <Navbar user={props.user} handleDialog={() => setIsDialog(!isDialog)}
              history={props.history} />
             {children}

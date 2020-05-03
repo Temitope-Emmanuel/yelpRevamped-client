@@ -15,7 +15,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("sm")]:{
             height:"100%",
             width:"100%",
-            margin:"0 0"
+            margin:"0 0",
+            display:"flex",
+            justifyContent:"space-between"
         }
     },
     CampgroundContainer:{
@@ -40,31 +42,34 @@ const useStyles = makeStyles(theme => ({
             }
         },
         [theme.breakpoints.down("sm")]:{
-        padding:theme.spacing(1,0.5)
+        padding:theme.spacing(1,0.5),
+        alignItems:"bottom"
         }
     },
     sectionContainer:{
         display:"flex",
         flexDirection:"row",
-        padding:".4em",
+        paddingTop:"1em",
         justifyContent:"center",
-        alignItems:"center",
         width:"100%",
         height:"100%",
         [theme.breakpoints.down("md")]:{
             flexDirection:"column",
-            padding:"0 0"
+            padding:"1em 0",
+            alignItems:"end",
+            justifyContent:"flex-end"
         }
     },
     userDetail:{
         height:"100%",
         margin:theme.spacing(1,0),
         padding:theme.spacing(1),
+        paddingTop:"0",
         width:"45%",
         display:"flex",
         justifyContent:"center",
         flexDirection:"column",
-        alignItems:"center",
+        alignItems:"flex-start",
         "& p":{
             fontSize:"1.2em",
             fontWeight:"700",
@@ -75,20 +80,24 @@ const useStyles = makeStyles(theme => ({
         alignItems:"center",
         justifyContent:"center",
         width:"100%",
-        height:"35%",
+        height:"30%",
         padding:theme.spacing(1),
+        margin:theme.spacing(1.5,0)
         }
     },
     imageContainer:{
         display:"flex",
         alignItems:"center",
         flexDirection:"column",
-        height:"40%",
+        margin:theme.spacing(1.5,0),
+        height:"60%",
         justifyContent:"space-between",
+        [theme.breakpoints.down("md")]:{
+            width:"100%",
+            height:"100%"
+        }
     },
     imageDiv:{
-        // width:"25em",
-        // height:"15em",
         maxHeight:"100%",
         maxWidth:"100%",
         objectFit:"cover",
@@ -104,6 +113,7 @@ const useStyles = makeStyles(theme => ({
     },
     avatarContainer:{
         display:"flex",
+        margin:theme.spacing(1),
         flexDirection:"column",
         width:"100%",
         justifyContent:"space-evenly",
@@ -121,26 +131,30 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("md")]:{
         flexDirection:"column",
         alignItems:"center",
+        margin:theme.spacing(1),
         }
     },
     panelContainer:{
         width:"55%",
         height:"auto",
         [theme.breakpoints.down("md")]:{
-            width:"98%"
+            width:"98%",
+            marginTop:theme.spacing(1),
+            height:"50%"
         }
     },
     larger:{
         width: theme.spacing(6),
         height: theme.spacing(6),
         [theme.breakpoints.down("md")]:{
-        width:theme.spacing(8),
-        height:theme.spacing(8)
+        width:theme.spacing(5),
+        height:theme.spacing(5)
         }
     },
     userContainer:{
         width:"100%",
         display:"flex",
+        margin:theme.spacing(1),
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"space-between",
@@ -180,7 +194,8 @@ const Campground = function({routeProps,addComment,AddComment,creator,deleteComm
                 <Paper className={classes.sectionContainer} elevation={10}>
                        <Box className={classes.userDetail}>
                            <Box className={classes.imageContainer}>
-                           <img alt="campground-img" className={classes.imageDiv}
+                           <img alt="campground-img" 
+                            className={classes.imageDiv}
                             src={Campground.location} />
                            <RatingComponent size="large"/>
                            </Box>

@@ -16,7 +16,9 @@ function App(props) {
   return (
     <Route render={({location,...propsRoute}) => (
       <TransitionGroup>
-        <CSSTransition key={location.key} classNames="page" timeout={500}>
+        <CSSTransition 
+          key={location.key} classNames="page"
+           timeout={1000}>
           <Switch location={location}>
             <Route exact path="/" render={(routeProps) => (
               <WrapperContainer>

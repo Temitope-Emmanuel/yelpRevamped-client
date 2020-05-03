@@ -48,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     width: "100%",
+    "&.MuiBox-root-177":{
+      padding:" 0 0 !important"
+    }
   },
 }));
 
