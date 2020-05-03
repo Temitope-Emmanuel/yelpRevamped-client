@@ -4,6 +4,7 @@
     width: 100%;
     top: 0;
     overflow-y:auto;
+    overflow-x: hidden;
     transition: opacity 1s ease-in-out;
   }
   .page-enter {
