@@ -94,7 +94,7 @@ const Detail = function({icons}){
     return (
         <Container className={classes.root}>
             <div className="box-c">
-            <a className="custom-underline" >Amenities</a>
+            <a href="/" className="custom-underline" >Amenities</a>
             </div>
             <Box className={classes.iconCardContainer}>
             {icons.map((m,idx) => (

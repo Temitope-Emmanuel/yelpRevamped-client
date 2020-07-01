@@ -83,3 +83,18 @@ export function deleteComment(commentId){
         })
     }
 }
+
+// ,
+//     "proxies":{
+//         "/api/":{
+//             "origin":"https://yelpcamp-server.herokuapp.com/api"
+//         }
+//     },
+//     "proxy": {
+//         "/api/": {
+//           "target": "https://yelpcamp-server.herokuapp.com/api",
+//           "pathRewrite": {
+//             "^/api": "/"
+//           }
+//         }
+//       }
